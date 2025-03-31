@@ -1,0 +1,29 @@
+<app-home></app-home>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 text-center mt-5">
+            <h2>Product List</h2>
+        </div>
+        <div class="col-md-12 mt-2">
+            <table class="table-bordered text-center" width="100%">
+                <tr>
+                    <th>SN</th>
+                    <th>Category Id</th>
+                    <th>Category Name</th>
+                    <th>Product Name</th>
+                    <th>Product Desc</th>
+                    
+                </tr>
+                <tr *ngFor="let row of products; let i=index;">
+                    <td>{{i+1}}</td>
+                    <td>{{row.category_id}}</td>
+                    <td>{{row.category_name}}</td>
+                    <td>{{row.product_name}}</td>
+                    <td>{{row.product_desc}}</td>
+                    <th><button class="btn btn-primary" >Update</button></th>
+                    <th><button class="btn btn-danger" (click)="deleteProduct(row.product_id)">Delete</button></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

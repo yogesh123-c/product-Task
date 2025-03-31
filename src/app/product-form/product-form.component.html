@@ -1,0 +1,39 @@
+<app-home></app-home>
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-12 text-center mt-4 ">
+            <h2>Product Form</h2>
+        </div>
+        <form [formGroup]="add_product" (ngSubmit)="saveDataproduct()">
+        <div class="col-md-5 ml-5 mb-4">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                  Category List
+                  {{ selectedCategory?.name || 'Select Category' }}
+                </button>
+                
+                <div class="dropdown-menu">
+                    <a class="dropdown-item"  *ngFor="let row of products" (click)="selectCategory(row.category_id, row.category_name)" >{{ row.category_name }}</a>
+                  </div>
+              </div>
+        </div>
+        <div class="col-md-12 ml-5 mb-4">
+
+        <!-- Hidden Input to Store Category ID -->
+      <input type="hidden" formControlName="category_id">
+            <b>Enter Product Name</b>
+            <input type="text" formControlName="product_name" class="form-control">
+        </div>
+        <div class="col-md-12  ml-5 mb-4">
+            <b>Enter Product Description</b>
+            <input type="text"  formControlName="product_desc" class="form-control">
+        </div>
+       
+        <div class="col-md-12 text-center mt-4">
+            <button class="btn btn-primary">Save</button>
+        </div>
+        </form>
+        
+    </div>
+</div>

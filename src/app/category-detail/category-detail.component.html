@@ -1,0 +1,40 @@
+<app-home></app-home>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 text-center mt-4 ">
+            <h2>Category Details</h2>
+        </div>
+        <form [formGroup]="add_category" (ngSubmit)="saveData()">
+        <div class="col-md-12 ml-5 mb-4">
+            <b>Enter Category Name</b>
+            <input type="text"formControlName="category_name" class="form-control">
+        </div>
+      
+        <div class="col-md-12 mt-2 ml-5">
+            <button class="btn btn-primary">Add Category</button>
+        </div>
+    </form>
+        <!-- <div class="col-md-12 text-center">
+            <button routerLink="list" class="btn btn-primary mt-3">Product List</button>
+        </div> -->
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Category Name</th>
+               <th></th>
+               <th></th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr *ngFor="let row of products;let i=index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{row.category_name}}</td>
+                <th scope="col"><button class="btn btn-primary">Update</button></th>
+                <th scope="col"><button (click)="deleteCategory(row.category_id)" class="btn btn-danger">Delete</button></th>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
